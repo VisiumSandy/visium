@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visium — Agence Web Premium</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">V</span>
+      <span class="logo-text">isium</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#arguments">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#avis">Avis</a></li>
+    </ul>
+    <a href="#devis" class="nav-cta">
+      <span>Devis gratuit</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="hero-layout">
+    <div class="hero-left">
+      <div class="hero-chip reveal">
+        <span class="chip-dot"></span>
+        Agence digitale premium · Paris
+      </div>
+      <h1 class="hero-title reveal reveal-d1">
+        Votre entreprise<br />mérite un site<br /><em>à la hauteur.</em>
+      </h1>
+      <p class="hero-sub reveal reveal-d2">Plus de visibilité. Plus de crédibilité. Plus de clients.</p>
+      <div class="hero-ctas reveal reveal-d3">
+        <a href="#devis" class="btn-primary">Demander un devis <span class="arrow">→</span></a>
+        <a href="#portfolio" class="btn-ghost">Voir nos réalisations</a>
+      </div>
+    </div>
+
+    <div class="hero-right reveal reveal-d2">
+      <div class="hero-panel glass-panel">
+        <div class="panel-header">
+          <span class="panel-dot red"></span>
+          <span class="panel-dot yellow"></span>
+          <span class="panel-dot green"></span>
+          <span class="panel-label">Performance · Visium</span>
+        </div>
+        <div class="panel-stats">
+          <div class="pstat">
+            <span class="pstat-val">98</span>
+            <span class="pstat-label">Lighthouse Score</span>
+            <div class="pstat-bar"><div class="pstat-fill" style="width:98%"></div></div>
+          </div>
+          <div class="pstat">
+            <span class="pstat-val">+340%</span>
+            <span class="pstat-label">Trafic organique moyen</span>
+            <div class="pstat-bar"><div class="pstat-fill" style="width:85%"></div></div>
+          </div>
+          <div class="pstat">
+            <span class="pstat-val">5</span>
+            <span class="pstat-label">Sites livrés · Clients satisfaits</span>
+            <div class="pstat-bar"><div class="pstat-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <span class="panel-badge">● Live</span>
+          <span class="panel-uptime">Uptime 99.9%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint reveal reveal-d4">
+    <div class="scroll-track"><div class="scroll-thumb"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── ARGUMENTS ── -->
+<section class="arguments section" id="arguments">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="section-chip reveal">Pourquoi Visium</p>
+        <h2 class="section-title reveal reveal-d1">Tout ce dont votre<br />entreprise <em>a besoin.</em></h2>
+      </div>
+      <p class="section-desc reveal reveal-d2">Nous créons des sites qui travaillent pour vous, 24h/24. Pas juste beaux — efficaces.</p>
+    </div>
+    <div class="args-grid">
+
+      <div class="arg-card glass-panel reveal">
+        <div class="arg-num">01</div>
+        <div class="arg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        </div>
+        <h3>Plus de demandes clients</h3>
+        <p>Un site conçu pour convertir vos visiteurs en prospects qualifiés, automatiquement.</p>
+      </div>
+
+      <div class="arg-card glass-panel reveal reveal-d1">
+        <div class="arg-num">02</div>
+        <div class="arg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.745 3.745 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.745 3.745 0 013.296-1.043A3.745 3.745 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.745 3.745 0 013.296 1.043 3.745 3.745 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+        </div>
+        <h3>Crédibilité instantanée</h3>
+        <p>Un design premium inspire confiance dès la première seconde. Vos prospects vous perçoivent différemment.</p>
+      </div>
+
+      <div class="arg-card glass-panel reveal reveal-d2">
+        <div class="arg-num">03</div>
+        <div class="arg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        </div>
+        <h3>Dépasser vos concurrents</h3>
+        <p>Pendant qu'ils ont un site ordinaire, vous avez une expérience. La différence se voit — et se vend.</p>
+      </div>
+
+      <div class="arg-card glass-panel reveal reveal-d1">
+        <div class="arg-num">04</div>
+        <div class="arg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/></svg>
+        </div>
+        <h3>Image premium maîtrisée</h3>
+        <p>Chaque détail raconte votre marque avec intention. Cohérence visuelle totale, sur tous les écrans.</p>
+      </div>
+
+      <div class="arg-card glass-panel reveal reveal-d2">
+        <div class="arg-num">05</div>
+        <div class="arg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5"/></svg>
+        </div>
+        <h3>Conversion optimisée</h3>
+        <p>Parcours utilisateur pensé pour transformer chaque visiteur en opportunité commerciale réelle.</p>
+      </div>
+
+      <div class="arg-card glass-panel reveal reveal-d3">
+        <div class="arg-num">06</div>
+        <div class="arg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803M10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+        <h3>SEO & Performance</h3>
+        <p>Score Lighthouse 95+, chargement &lt;2s. Google vous voit avant vos concurrents.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ── -->
+<section class="portfolio section" id="portfolio">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="section-chip reveal">Réalisations</p>
+        <h2 class="section-title reveal reveal-d1">Ce que nous avons<br /><em>créé pour eux.</em></h2>
+      </div>
+      <p class="section-desc reveal reveal-d2">Des sites réels, pour de vraies entreprises. Chaque projet, un résultat mesurable.</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- MoneyWave -->
+      <div class="project-card glass-panel reveal">
+        <a href="https://moneywave.fr" target="_blank" rel="noopener" class="project-link-wrap">
+          <div class="project-thumb" style="background: linear-gradient(140deg, #0a0a1a 0%, #1a1040 40%, #2a1060 100%);">
+            <div class="project-mockup">
+              <div class="mock-bar"></div>
+              <div class="mock-url">moneywave.fr</div>
+            </div>
+            <div class="project-tags-top">
+              <span class="ptag">E-commerce</span>
+              <span class="ptag">Mode</span>
+            </div>
+            <div class="project-glow" style="background: radial-gradient(circle, rgba(120,80,255,0.4), transparent 60%)"></div>
+          </div>
+        </a>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-type">Boutique en ligne · Vêtements</span>
+          </div>
+          <h3>MoneyWave</h3>
+          <p>E-commerce mode streetwear — catalogue produits, panier, paiement en ligne intégré.</p>
+          <a href="https://moneywave.fr" target="_blank" rel="noopener" class="btn-link">
+            Visiter le site <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- TradingFrame -->
+      <div class="project-card glass-panel reveal reveal-d1">
+        <a href="https://tradingframe.fr" target="_blank" rel="noopener" class="project-link-wrap">
+          <div class="project-thumb" style="background: linear-gradient(140deg, #050e1a 0%, #0a2040 40%, #0d3060 100%);">
+            <div class="project-mockup">
+              <div class="mock-bar"></div>
+              <div class="mock-url">tradingframe.fr</div>
+            </div>
+            <div class="project-tags-top">
+              <span class="ptag">E-commerce</span>
+              <span class="ptag">Détail</span>
+            </div>
+            <div class="project-glow" style="background: radial-gradient(circle, rgba(0,120,255,0.35), transparent 60%)"></div>
+          </div>
+        </a>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-type">Boutique en ligne · Vente au détail</span>
+          </div>
+          <h3>TradingFrame</h3>
+          <p>E-commerce spécialisé vente de détail — interface épurée, expérience d'achat fluide.</p>
+          <a href="https://tradingframe.fr" target="_blank" rel="noopener" class="btn-link">
+            Visiter le site <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Le Petit Magasin -->
+      <div class="project-card glass-panel reveal reveal-d2">
+        <a href="https://lepetitmagasin.fr" target="_blank" rel="noopener" class="project-link-wrap">
+          <div class="project-thumb" style="background: linear-gradient(140deg, #1a100a 0%, #3d2010 40%, #5a3018 100%);">
+            <div class="project-mockup">
+              <div class="mock-bar"></div>
+              <div class="mock-url">lepetitmagasin.fr</div>
+            </div>
+            <div class="project-tags-top">
+              <span class="ptag">Vitrine</span>
+              <span class="ptag">Décoration</span>
+            </div>
+            <div class="project-glow" style="background: radial-gradient(circle, rgba(200,120,40,0.35), transparent 60%)"></div>
+          </div>
+        </a>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-type">Site vitrine · Magasin décoration</span>
+          </div>
+          <h3>Le Petit Magasin</h3>
+          <p>Vitrine élégante pour magasin de décoration — présentation produits, horaires, contact.</p>
+          <a href="https://lepetitmagasin.fr" target="_blank" rel="noopener" class="btn-link">
+            Visiter le site <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Au Facteur Cheval -->
+      <div class="project-card glass-panel reveal reveal-d1">
+        <a href="https://www.aufacteurchevalantiquites.com" target="_blank" rel="noopener" class="project-link-wrap">
+          <div class="project-thumb" style="background: linear-gradient(140deg, #0f0c08 0%, #2a2010 40%, #3d3018 100%);">
+            <div class="project-mockup">
+              <div class="mock-bar"></div>
+              <div class="mock-url">aufacteurchevalantiquites.com</div>
+            </div>
+            <div class="project-tags-top">
+              <span class="ptag">Vitrine</span>
+              <span class="ptag">Antiquités</span>
+            </div>
+            <div class="project-glow" style="background: radial-gradient(circle, rgba(180,140,60,0.35), transparent 60%)"></div>
+          </div>
+        </a>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-type">Site vitrine · Antiquaire</span>
+          </div>
+          <h3>Au Facteur Cheval</h3>
+          <p>Site vitrine raffiné pour antiquaire — galerie de pièces, histoire de la boutique, contact.</p>
+          <a href="https://www.aufacteurchevalantiquites.com" target="_blank" rel="noopener" class="btn-link">
+            Visiter le site <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- WillyAuto -->
+      <div class="project-card glass-panel reveal reveal-d2">
+        <a href="https://willyauto.fr" target="_blank" rel="noopener" class="project-link-wrap">
+          <div class="project-thumb" style="background: linear-gradient(140deg, #08100a 0%, #102510 40%, #183518 100%);">
+            <div class="project-mockup">
+              <div class="mock-bar"></div>
+              <div class="mock-url">willyauto.fr</div>
+            </div>
+            <div class="project-tags-top">
+              <span class="ptag">Vitrine</span>
+              <span class="ptag">Automobile</span>
+            </div>
+            <div class="project-glow" style="background: radial-gradient(circle, rgba(40,180,80,0.3), transparent 60%)"></div>
+          </div>
+        </a>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="project-type">Site vitrine · Garage automobile</span>
+          </div>
+          <h3>WillyAuto</h3>
+          <p>Site vitrine professionnel pour garage — services, devis en ligne, prise de contact simplifiée.</p>
+          <a href="https://willyauto.fr" target="_blank" rel="noopener" class="btn-link">
+            Visiter le site <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA card -->
+      <div class="project-card project-cta glass-panel reveal reveal-d3">
+        <div class="cta-inner">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4.5v15m7.5-7.5h-15"/></svg>
+          </div>
+          <h3>Votre projet ici ?</h3>
+          <p>Rejoignez nos clients satisfaits. Devis gratuit, réponse sous 24h.</p>
+          <a href="#devis" class="btn-primary">Lancer mon projet <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TARIFS ── -->
+<section class="tarifs section" id="tarifs">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="section-chip reveal">Investissement</p>
+        <h2 class="section-title reveal reveal-d1">La qualité premium<br /><em>accessible.</em></h2>
+      </div>
+    </div>
+
+    <div class="tarifs-split glass-panel reveal">
+      <div class="tarif-side tarif-old">
+        <p class="tarif-eyebrow">Ce que les autres facturent</p>
+        <p class="tarif-struck"><s>2 000€ – 8 000€</s></p>
+        <p class="tarif-note">Souvent pour un résultat décevant</p>
+      </div>
+      <div class="tarif-divider-v"></div>
+      <div class="tarif-side tarif-new">
+        <p class="tarif-eyebrow accent">Visium · À partir de</p>
+        <div class="tarif-price-row">
+          <span class="tarif-currency">€</span>
+          <span class="tarif-amount">990</span>
+        </div>
+        <a href="#devis" class="btn-primary">Obtenir mon devis <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="features-row reveal">
+      <div class="feat"><span class="feat-check">✓</span><span>Adapté aux budgets PME & indépendants</span></div>
+      <div class="feat"><span class="feat-check">✓</span><span>Paiement en plusieurs fois sans frais</span></div>
+      <div class="feat"><span class="feat-check">✓</span><span>Accompagnement complet, de A à Z</span></div>
+      <div class="feat"><span class="feat-check">✓</span><span>Design 100% sur mesure, aucun template</span></div>
+      <div class="feat"><span class="feat-check">✓</span><span>SEO technique inclus d'office</span></div>
+    </div>
+
+    <div class="comparatif reveal">
+      <h3 class="comp-title">Visium <span>vs</span> les autres agences</h3>
+      <div class="comp-table">
+        <div class="comp-head">
+          <div class="comp-c"></div>
+          <div class="comp-c comp-label-other">Autres agences</div>
+          <div class="comp-c comp-label-visium">Visium</div>
+        </div>
+        <div class="comp-row"><div class="comp-c comp-feat">Design sur mesure</div><div class="comp-c"><span class="no">✕</span></div><div class="comp-c vis-col"><span class="yes">✓</span></div></div>
+        <div class="comp-row"><div class="comp-c comp-feat">Délai livraison &lt; 3 semaines</div><div class="comp-c"><span class="no">✕</span></div><div class="comp-c vis-col"><span class="yes">✓</span></div></div>
+        <div class="comp-row"><div class="comp-c comp-feat">SEO optimisé inclus</div><div class="comp-c"><span class="no">✕</span></div><div class="comp-c vis-col"><span class="yes">✓</span></div></div>
+        <div class="comp-row"><div class="comp-c comp-feat">Prix transparent dès le début</div><div class="comp-c"><span class="no">✕</span></div><div class="comp-c vis-col"><span class="yes">✓</span></div></div>
+        <div class="comp-row"><div class="comp-c comp-feat">Suivi post-lancement inclus</div><div class="comp-c"><span class="no">✕</span></div><div class="comp-c vis-col"><span class="yes">✓</span></div></div>
+        <div class="comp-row"><div class="comp-c comp-feat">Paiement échelonné</div><div class="comp-c"><span class="no">✕</span></div><div class="comp-c vis-col"><span class="yes">✓</span></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── AVIS ── -->
+<section class="avis section" id="avis">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="section-chip reveal">Témoignages</p>
+        <h2 class="section-title reveal reveal-d1">Ils nous font<br /><em>confiance.</em></h2>
+      </div>
+      <p class="section-desc reveal reveal-d2">Nos clients parlent mieux que nous.</p>
+    </div>
+
+    <div class="avis-wrapper">
+      <div class="avis-track" id="avis-track">
+
+        <div class="avis-card glass-panel avis-blue">
+          <div class="avis-top">
+            <div class="avis-site-badge">moneywave.fr</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p class="avis-text">"Visium a créé notre boutique en ligne de A à Z. Le résultat est bluffant — notre site est plus beau que ceux de grandes marques. Nos clients nous le disent à chaque fois."</p>
+          <div class="avis-author">
+            <div class="author-av av-blue">MW</div>
+            <div>
+              <strong>Fondateur</strong>
+              <span>MoneyWave · E-commerce mode</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="avis-card glass-panel avis-violet">
+          <div class="avis-top">
+            <div class="avis-site-badge">tradingframe.fr</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p class="avis-text">"Professionnels, réactifs et créatifs. Notre e-commerce fonctionne parfaitement et attire de nouveaux clients. Le rapport qualité-prix est imbattable pour ce niveau de rendu."</p>
+          <div class="avis-author">
+            <div class="author-av av-violet">TF</div>
+            <div>
+              <strong>Gérant</strong>
+              <span>TradingFrame · Vente au détail</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="avis-card glass-panel avis-amber">
+          <div class="avis-top">
+            <div class="avis-site-badge">lepetitmagasin.fr</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p class="avis-text">"Notre site vitrine reflète parfaitement l'âme de notre boutique. Depuis sa mise en ligne, nous recevons régulièrement des clients qui nous ont trouvés sur Google. Merci Visium !"</p>
+          <div class="avis-author">
+            <div class="author-av av-amber">PM</div>
+            <div>
+              <strong>Propriétaire</strong>
+              <span>Le Petit Magasin · Décoration</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="avis-card glass-panel avis-gold">
+          <div class="avis-top">
+            <div class="avis-site-badge">aufacteurchevalantiquites.com</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p class="avis-text">"Un site digne de notre passion pour les antiquités. L'équipe a su capturer notre univers avec une élégance rare. Livré rapidement, sans aucune surprise. Je recommande à 100%."</p>
+          <div class="avis-author">
+            <div class="author-av av-gold">FC</div>
+            <div>
+              <strong>Antiquaire</strong>
+              <span>Au Facteur Cheval · Antiquités</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="avis-card glass-panel avis-green">
+          <div class="avis-top">
+            <div class="avis-site-badge">willyauto.fr</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p class="avis-text">"Depuis qu'on a notre site, les clients arrivent déjà informés sur nos services. Les demandes de devis en ligne marchent vraiment bien. Visium a vraiment changé la donne pour notre garage."</p>
+          <div class="avis-author">
+            <div class="author-av av-green">WA</div>
+            <div>
+              <strong>Willy</strong>
+              <span>WillyAuto · Garage automobile</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="avis-nav">
+      <button class="avis-btn" id="avis-prev" aria-label="Précédent">←</button>
+      <div class="avis-dots" id="avis-dots">
+        <span class="dot-item active"></span>
+        <span class="dot-item"></span>
+        <span class="dot-item"></span>
+        <span class="dot-item"></span>
+        <span class="dot-item"></span>
+      </div>
+      <button class="avis-btn" id="avis-next" aria-label="Suivant">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEVIS ── -->
+<section class="devis section" id="devis">
+  <div class="container">
+    <div class="devis-layout">
+      <div class="devis-left">
+        <p class="section-chip reveal">Contact</p>
+        <h2 class="section-title reveal reveal-d1">Parlons de<br /><em>votre projet.</em></h2>
+        <p class="devis-sub reveal reveal-d2">Réponse sous 24h. Devis gratuit, sans engagement.</p>
+        <div class="devis-contacts reveal reveal-d3">
+          <a href="mailto:contact@visium.fr" class="contact-item">
+            <div class="contact-ico">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h16v12H2z"/><path d="M2 4l8 7 8-7"/></svg>
+            </div>
+            <span>contact@visium.fr</span>
+          </a>
+          <a href="https://visium.fr" target="_blank" class="contact-item">
+            <div class="contact-ico">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M10 2c0 0-4 3-4 8s4 8 4 8"/><path d="M10 2c0 0 4 3 4 8s-4 8-4 8"/><path d="M2 10h16"/></svg>
+            </div>
+            <span>visium.fr</span>
+          </a>
+        </div>
+        <div class="devis-trust reveal reveal-d4">
+          <div class="trust-item"><span class="yes">✓</span> Sans engagement</div>
+          <div class="trust-item"><span class="yes">✓</span> Réponse &lt; 24h</div>
+          <div class="trust-item"><span class="yes">✓</span> 100% confidentiel</div>
+        </div>
+      </div>
+
+      <div class="devis-right reveal reveal-d2">
+        <div class="form-wrap glass-panel">
+          <div class="form-head">
+            <span class="form-title">Demande de devis</span>
+            <span class="form-free-badge">Gratuit</span>
+          </div>
+          <form id="devis-form">
+            <div class="fg-row">
+              <div class="fg">
+                <label for="nom">Nom complet <span class="req">*</span></label>
+                <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required />
+              </div>
+              <div class="fg">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jean@société.fr" required />
+              </div>
+            </div>
+            <div class="fg-row">
+              <div class="fg">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" />
+              </div>
+              <div class="fg">
+                <label for="entreprise">Entreprise</label>
+                <input type="text" id="entreprise" name="entreprise" placeholder="Nom de votre société" />
+              </div>
+            </div>
+            <div class="fg">
+              <label for="budget">Budget estimé</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Sélectionner une fourchette</option>
+                <option value="990-2000">990€ – 2 000€</option>
+                <option value="2000-5000">2 000€ – 5 000€</option>
+                <option value="5000+">5 000€ +</option>
+                <option value="nc">Je ne sais pas encore</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label for="message">Décrivez votre projet</label>
+              <textarea id="message" name="message" rows="4" placeholder="Type de site, secteur, objectifs…"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span class="btn-submit-text">Envoyer ma demande</span>
+              <span class="btn-submit-arrow">→</span>
+            </button>
+            <p class="form-legal">Aucun spam · Données confidentielles · RGPD</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-mark">V</span><span class="logo-text">isium</span></a>
+        <p>L'agence web qui fait la différence.<br />Design premium. Prix accessibles.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 11v5M8 8v.5M12 16v-5M12 11c0-1.1.9-2 2-2s2 .9 2 2v5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="#arguments">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#tarifs">Tarifs</a>
+          <a href="#avis">Témoignages</a>
+        </div>
+        <div class="footer-col">
+          <h4>Réalisations</h4>
+          <a href="https://moneywave.fr" target="_blank">MoneyWave</a>
+          <a href="https://tradingframe.fr" target="_blank">TradingFrame</a>
+          <a href="https://willyauto.fr" target="_blank">WillyAuto</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:contact@visium.fr">contact@visium.fr</a>
+          <a href="#">Mentions légales</a>
+          <a href="#">Confidentialité</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Visium · Tous droits réservés</p>
+      <p>Fait avec <span class="heart">♥</span> à Paris</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
