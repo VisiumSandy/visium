@@ -1255,6 +1255,46 @@
 
 <script src="script.js"></script>
 <script>
+// Smooth slow scroll
+(function() {
+  // ⬇️ RÉGLAGES :
+  const SPEED = 0.5;      // Vitesse molette : 0.2 = très lent, 0.5 = normal, 1 = rapide
+  const LERP  = 0.07;     // Fluidité inertie : 0.03 = très mou, 0.1 = rapide, 0.07 = smooth
+
+  let currentY = window.scrollY;
+  let targetY  = window.scrollY;
+  let rafId    = null;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function tick() {
+    currentY = lerp(currentY, targetY, LERP);
+    window.scrollTo(0, currentY);
+    if (Math.abs(targetY - currentY) > 0.3) {
+      rafId = requestAnimationFrame(tick);
+    } else {
+      currentY = targetY;
+      window.scrollTo(0, currentY);
+      rafId = null;
+    }
+  }
+
+  window.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    targetY = Math.max(0, Math.min(
+      targetY + e.deltaY * SPEED,
+      document.documentElement.scrollHeight - window.innerHeight
+    ));
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }, { passive: false });
+
+  // Sync on resize / programmatic scroll
+  window.addEventListener('scroll', function() {
+    if (!rafId) { currentY = window.scrollY; targetY = window.scrollY; }
+  });
+})();
+</script>
+<script>
   // Pill Nav animation
   const navContainer = document.querySelector('.nav-links');
   const indicator = document.getElementById('pill-indicator');
