@@ -7,6 +7,133 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── PILL NAV ── */
+    .navbar {
+      position: fixed !important;
+      top: 14px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 9999 !important;
+      width: calc(100% - 48px);
+      max-width: 960px;
+    }
+
+    .navbar nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8, 10, 22, 0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 50px;
+      padding: 6px 8px 6px 20px;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: #6C63FF; }
+
+    /* Pill nav links container */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+      position: relative;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50px;
+      padding: 4px;
+      gap: 0;
+    }
+
+    /* The sliding pill indicator */
+    .nav-pill-indicator {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      height: calc(100% - 8px);
+      background: rgba(255,255,255,0.12);
+      border-radius: 50px;
+      transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .nav-links a {
+      position: relative;
+      z-index: 1;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 50px;
+      white-space: nowrap;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    .nav-links a:hover { color: rgba(255,255,255,0.9); }
+    .nav-links a.active { color: #fff; }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .nav-cta .btn-primary {
+      background: #4F6EF7;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-cta .btn-primary:hover {
+      background: #3a58e8;
+      transform: translateY(-1px);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar { width: calc(100% - 24px); top: 8px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,25 +141,24 @@
 <div class="cursor-follower" id="cursor-follower"></div>
 
 <!-- ── NAVBAR ── -->
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a href="#" class="logo">
-      <span class="logo-mark">V</span>
-      <span class="logo-text">isium</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#arguments">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#tarifs">Tarifs</a></li>
-      <li><a href="#avis">Avis</a></li>
-    </ul>
-    <a href="#devis" class="nav-cta">
-      <span>Devis gratuit</span>
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
-  </div>
-</nav>
+<div class="navbar" id="navbar">
+  <nav role="navigation" aria-label="Navigation principale">
+    <a href="#" class="nav-logo">V<span>i</span>sium</a>
+    <div class="nav-links" role="list">
+      <div class="nav-pill-indicator" id="pill-indicator"></div>
+      <a href="#arguments" role="listitem" class="active">Pourquoi un site</a>
+      <a href="#method" role="listitem">Méthode</a>
+      <a href="#portfolio" role="listitem">Portfolio</a>
+      <a href="#avis" role="listitem">Avis</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#devis" class="btn-primary">Demander un devis</a>
+      <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+</div>
 
 <!-- ── HERO ── -->
 <section class="hero" id="hero">
@@ -181,7 +307,6 @@
 
     <div class="portfolio-grid">
 
-      <!-- MoneyWave -->
       <div class="project-card glass-panel reveal">
         <a href="https://moneywave.fr" target="_blank" rel="noopener" class="project-link-wrap">
           <div class="project-thumb" style="background: linear-gradient(140deg, #0a0a1a 0%, #1a1040 40%, #2a1060 100%);">
@@ -202,13 +327,10 @@
           </div>
           <h3>MoneyWave</h3>
           <p>E-commerce mode streetwear — catalogue produits, panier, paiement en ligne intégré.</p>
-          <a href="https://moneywave.fr" target="_blank" rel="noopener" class="btn-link">
-            Visiter le site <span>↗</span>
-          </a>
+          <a href="https://moneywave.fr" target="_blank" rel="noopener" class="btn-link">Visiter le site <span>↗</span></a>
         </div>
       </div>
 
-      <!-- TradingFrame -->
       <div class="project-card glass-panel reveal reveal-d1">
         <a href="https://tradingframe.fr" target="_blank" rel="noopener" class="project-link-wrap">
           <div class="project-thumb" style="background: linear-gradient(140deg, #050e1a 0%, #0a2040 40%, #0d3060 100%);">
@@ -229,13 +351,10 @@
           </div>
           <h3>TradingFrame</h3>
           <p>E-commerce spécialisé vente de détail — interface épurée, expérience d'achat fluide.</p>
-          <a href="https://tradingframe.fr" target="_blank" rel="noopener" class="btn-link">
-            Visiter le site <span>↗</span>
-          </a>
+          <a href="https://tradingframe.fr" target="_blank" rel="noopener" class="btn-link">Visiter le site <span>↗</span></a>
         </div>
       </div>
 
-      <!-- Le Petit Magasin -->
       <div class="project-card glass-panel reveal reveal-d2">
         <a href="https://lepetitmagasin.fr" target="_blank" rel="noopener" class="project-link-wrap">
           <div class="project-thumb" style="background: linear-gradient(140deg, #1a100a 0%, #3d2010 40%, #5a3018 100%);">
@@ -256,13 +375,10 @@
           </div>
           <h3>Le Petit Magasin</h3>
           <p>Vitrine élégante pour magasin de décoration — présentation produits, horaires, contact.</p>
-          <a href="https://lepetitmagasin.fr" target="_blank" rel="noopener" class="btn-link">
-            Visiter le site <span>↗</span>
-          </a>
+          <a href="https://lepetitmagasin.fr" target="_blank" rel="noopener" class="btn-link">Visiter le site <span>↗</span></a>
         </div>
       </div>
 
-      <!-- Au Facteur Cheval -->
       <div class="project-card glass-panel reveal reveal-d1">
         <a href="https://www.aufacteurchevalantiquites.com" target="_blank" rel="noopener" class="project-link-wrap">
           <div class="project-thumb" style="background: linear-gradient(140deg, #0f0c08 0%, #2a2010 40%, #3d3018 100%);">
@@ -283,13 +399,10 @@
           </div>
           <h3>Au Facteur Cheval</h3>
           <p>Site vitrine raffiné pour antiquaire — galerie de pièces, histoire de la boutique, contact.</p>
-          <a href="https://www.aufacteurchevalantiquites.com" target="_blank" rel="noopener" class="btn-link">
-            Visiter le site <span>↗</span>
-          </a>
+          <a href="https://www.aufacteurchevalantiquites.com" target="_blank" rel="noopener" class="btn-link">Visiter le site <span>↗</span></a>
         </div>
       </div>
 
-      <!-- WillyAuto -->
       <div class="project-card glass-panel reveal reveal-d2">
         <a href="https://willyauto.fr" target="_blank" rel="noopener" class="project-link-wrap">
           <div class="project-thumb" style="background: linear-gradient(140deg, #08100a 0%, #102510 40%, #183518 100%);">
@@ -310,13 +423,10 @@
           </div>
           <h3>WillyAuto</h3>
           <p>Site vitrine professionnel pour garage — services, devis en ligne, prise de contact simplifiée.</p>
-          <a href="https://willyauto.fr" target="_blank" rel="noopener" class="btn-link">
-            Visiter le site <span>↗</span>
-          </a>
+          <a href="https://willyauto.fr" target="_blank" rel="noopener" class="btn-link">Visiter le site <span>↗</span></a>
         </div>
       </div>
 
-      <!-- CTA card -->
       <div class="project-card project-cta glass-panel reveal reveal-d3">
         <div class="cta-inner">
           <div class="cta-icon">
@@ -331,6 +441,529 @@
     </div>
   </div>
 </section>
+
+<!-- ── CARDSWAP ── -->
+<section class="cardswap-section section" id="cardswap">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="section-chip reveal">En live</p>
+        <h2 class="section-title reveal reveal-d1">Vos futurs sites,<br /><em>déjà vivants.</em></h2>
+      </div>
+      <p class="section-desc reveal reveal-d2"></p>
+    </div>
+
+    <div class="cs-stage reveal">
+      <div class="cs-container" id="cs-container">
+
+        <!-- Card 1 : MoneyWave -->
+        <div class="cs-card">
+          <div class="cs-browser">
+            <div class="cs-bar">
+              <span class="cs-dot" style="background:#ff5f57"></span>
+              <span class="cs-dot" style="background:#ffbd2e"></span>
+              <span class="cs-dot" style="background:#28c840"></span>
+              <div class="cs-url">moneywave.fr</div>
+            </div>
+            <div class="cs-screen" style="background:linear-gradient(160deg,#0a0a1a 0%,#1a1040 50%,#2a1060 100%)">
+              <div class="cs-hero-mock">
+                <div class="cs-logo-mock" style="color:#a78bfa;font-weight:800;font-size:1.4rem;font-family:'Syne',sans-serif;">MoneyWave</div>
+                <div class="cs-tagline">Streetwear d'exception</div>
+                <div class="cs-btn-mock" style="background:#7c3aed;">Shop Now →</div>
+                <div class="cs-products">
+                  <div class="cs-product" style="background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.4)">
+                    <div class="cs-product-img" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)"></div>
+                    <div class="cs-product-name">Hoodie Premium</div>
+                    <div class="cs-product-price">89€</div>
+                  </div>
+                  <div class="cs-product" style="background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.4)">
+                    <div class="cs-product-img" style="background:linear-gradient(135deg,#4f46e5,#2563eb)"></div>
+                    <div class="cs-product-name">Tee Signature</div>
+                    <div class="cs-product-price">45€</div>
+                  </div>
+                  <div class="cs-product" style="background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.4)">
+                    <div class="cs-product-img" style="background:linear-gradient(135deg,#6d28d9,#7c3aed)"></div>
+                    <div class="cs-product-name">Cargo Wave</div>
+                    <div class="cs-product-price">120€</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cs-badge-live">● Live</div>
+            </div>
+          </div>
+          <div class="cs-label">
+            <span class="cs-label-name">MoneyWave</span>
+            <span class="cs-label-type">E-commerce · Mode</span>
+          </div>
+        </div>
+
+        <!-- Card 2 : TradingFrame -->
+        <div class="cs-card">
+          <div class="cs-browser">
+            <div class="cs-bar">
+              <span class="cs-dot" style="background:#ff5f57"></span>
+              <span class="cs-dot" style="background:#ffbd2e"></span>
+              <span class="cs-dot" style="background:#28c840"></span>
+              <div class="cs-url">tradingframe.fr</div>
+            </div>
+            <div class="cs-screen" style="background:linear-gradient(160deg,#050e1a 0%,#0a2040 50%,#0d3060 100%)">
+              <div class="cs-hero-mock">
+                <div class="cs-logo-mock" style="color:#60a5fa;font-weight:800;font-size:1.4rem;font-family:'Syne',sans-serif;">TradingFrame</div>
+                <div class="cs-tagline">Vente au détail premium</div>
+                <div class="cs-chart-mock">
+                  <svg viewBox="0 0 200 60" style="width:100%;height:50px;">
+                    <polyline points="0,50 30,35 60,40 90,20 120,28 150,10 200,15" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+                    <polyline points="0,50 30,35 60,40 90,20 120,28 150,10 200,15 200,60 0,60" fill="url(#gblue)" opacity="0.3"/>
+                    <defs><linearGradient id="gblue" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="transparent"/></linearGradient></defs>
+                  </svg>
+                </div>
+                <div class="cs-stats-row">
+                  <div class="cs-stat-item"><div style="color:#60a5fa;font-weight:700;font-size:1rem">+127%</div><div style="color:rgba(255,255,255,0.5);font-size:0.6rem">Ventes</div></div>
+                  <div class="cs-stat-item"><div style="color:#34d399;font-weight:700;font-size:1rem">4.9★</div><div style="color:rgba(255,255,255,0.5);font-size:0.6rem">Avis</div></div>
+                  <div class="cs-stat-item"><div style="color:#f59e0b;font-weight:700;font-size:1rem">2.3k</div><div style="color:rgba(255,255,255,0.5);font-size:0.6rem">Clients</div></div>
+                </div>
+              </div>
+              <div class="cs-badge-live">● Live</div>
+            </div>
+          </div>
+          <div class="cs-label">
+            <span class="cs-label-name">TradingFrame</span>
+            <span class="cs-label-type">E-commerce · Détail</span>
+          </div>
+        </div>
+
+        <!-- Card 3 : Le Petit Magasin -->
+        <div class="cs-card">
+          <div class="cs-browser">
+            <div class="cs-bar">
+              <span class="cs-dot" style="background:#ff5f57"></span>
+              <span class="cs-dot" style="background:#ffbd2e"></span>
+              <span class="cs-dot" style="background:#28c840"></span>
+              <div class="cs-url">lepetitmagasin.fr</div>
+            </div>
+            <div class="cs-screen" style="background:linear-gradient(160deg,#1a100a 0%,#3d2010 50%,#5a3018 100%)">
+              <div class="cs-hero-mock">
+                <div class="cs-logo-mock" style="color:#f59e0b;font-weight:700;font-size:1.1rem;font-family:'Syne',sans-serif;letter-spacing:0.1em;">LE PETIT MAGASIN</div>
+                <div class="cs-tagline">Art de vivre · Décoration</div>
+                <div class="cs-gallery">
+                  <div class="cs-gal-item" style="background:linear-gradient(135deg,#92400e,#b45309)"></div>
+                  <div class="cs-gal-item cs-gal-tall" style="background:linear-gradient(135deg,#78350f,#92400e)"></div>
+                  <div class="cs-gal-item" style="background:linear-gradient(135deg,#b45309,#d97706)"></div>
+                  <div class="cs-gal-item" style="background:linear-gradient(135deg,#d97706,#f59e0b)"></div>
+                </div>
+                <div class="cs-hours">🕐 Lun–Sam · 10h–19h · Paris 6e</div>
+              </div>
+              <div class="cs-badge-live">● Live</div>
+            </div>
+          </div>
+          <div class="cs-label">
+            <span class="cs-label-name">Le Petit Magasin</span>
+            <span class="cs-label-type">Vitrine · Décoration</span>
+          </div>
+        </div>
+
+        <!-- Card 4 : WillyAuto -->
+        <div class="cs-card">
+          <div class="cs-browser">
+            <div class="cs-bar">
+              <span class="cs-dot" style="background:#ff5f57"></span>
+              <span class="cs-dot" style="background:#ffbd2e"></span>
+              <span class="cs-dot" style="background:#28c840"></span>
+              <div class="cs-url">willyauto.fr</div>
+            </div>
+            <div class="cs-screen" style="background:linear-gradient(160deg,#08100a 0%,#102510 50%,#183518 100%)">
+              <div class="cs-hero-mock">
+                <div class="cs-logo-mock" style="color:#4ade80;font-weight:800;font-size:1.4rem;font-family:'Syne',sans-serif;">WillyAuto 🔧</div>
+                <div class="cs-tagline">Garage · Entretien · Réparation</div>
+                <div class="cs-services">
+                  <div class="cs-service-item">✓ Vidange & révision</div>
+                  <div class="cs-service-item">✓ Freinage & pneumatiques</div>
+                  <div class="cs-service-item">✓ Diagnostic électronique</div>
+                  <div class="cs-service-item">✓ Carrosserie</div>
+                </div>
+                <div class="cs-btn-mock" style="background:#16a34a;margin-top:8px;">Demander un devis →</div>
+              </div>
+              <div class="cs-badge-live">● Live</div>
+            </div>
+          </div>
+          <div class="cs-label">
+            <span class="cs-label-name">WillyAuto</span>
+            <span class="cs-label-type">Vitrine · Garage auto</span>
+          </div>
+        </div>
+
+        <!-- Card 5 : Au Facteur Cheval -->
+        <div class="cs-card">
+          <div class="cs-browser">
+            <div class="cs-bar">
+              <span class="cs-dot" style="background:#ff5f57"></span>
+              <span class="cs-dot" style="background:#ffbd2e"></span>
+              <span class="cs-dot" style="background:#28c840"></span>
+              <div class="cs-url">aufacteurchevalantiquites.com</div>
+            </div>
+            <div class="cs-screen" style="background:linear-gradient(160deg,#0f0c08 0%,#2a2010 50%,#3d3018 100%)">
+              <div class="cs-hero-mock">
+                <div class="cs-logo-mock" style="color:#d4a857;font-weight:600;font-size:1rem;font-family:Georgia,serif;letter-spacing:0.08em;">Au Facteur Cheval</div>
+                <div class="cs-tagline" style="font-style:italic;color:rgba(212,168,87,0.7)">Antiquités d'exception · Depuis 1987</div>
+                <div class="cs-antique-grid">
+                  <div class="cs-antique-item" style="background:linear-gradient(135deg,#44340a,#6b4f10)">
+                    <div style="font-size:1.5rem;text-align:center;padding:8px">🏺</div>
+                  </div>
+                  <div class="cs-antique-item" style="background:linear-gradient(135deg,#3a2d08,#5a4410)">
+                    <div style="font-size:1.5rem;text-align:center;padding:8px">🖼️</div>
+                  </div>
+                  <div class="cs-antique-item" style="background:linear-gradient(135deg,#4a3a0a,#7a5c14)">
+                    <div style="font-size:1.5rem;text-align:center;padding:8px">🕰️</div>
+                  </div>
+                </div>
+                <div class="cs-hours" style="color:rgba(212,168,87,0.6)">📍 Paris 7e · Sur rendez-vous</div>
+              </div>
+              <div class="cs-badge-live">● Live</div>
+            </div>
+          </div>
+          <div class="cs-label">
+            <span class="cs-label-name">Au Facteur Cheval</span>
+            <span class="cs-label-type">Vitrine · Antiquités</span>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<style>
+.cardswap-section { overflow: hidden; }
+
+.cs-stage {
+  position: relative;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  margin-top: 48px;
+}
+
+.cs-container {
+  position: relative;
+  width: 380px;
+  height: 420px;
+  transform-style: preserve-3d;
+}
+
+.cs-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 380px;
+  transform-origin: center center;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.cs-browser {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.07);
+  background: #141416;
+}
+
+.cs-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #1c1c1e;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.cs-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cs-url {
+  flex: 1;
+  text-align: center;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.04);
+  border-radius: 6px;
+  padding: 3px 10px;
+  margin: 0 8px;
+  font-family: monospace;
+}
+
+.cs-screen {
+  padding: 20px;
+  min-height: 300px;
+  position: relative;
+}
+
+.cs-hero-mock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs-logo-mock { line-height: 1.2; }
+
+.cs-tagline {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 4px;
+}
+
+.cs-btn-mock {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+  width: fit-content;
+  margin-top: 4px;
+}
+
+.cs-products {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cs-product {
+  flex: 1;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.cs-product-img {
+  height: 50px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.cs-product-name {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.cs-product-price {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #a78bfa;
+}
+
+.cs-chart-mock {
+  background: rgba(59,130,246,0.05);
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 8px;
+  padding: 8px;
+  margin: 4px 0;
+}
+
+.cs-stats-row {
+  display: flex;
+  gap: 12px;
+}
+
+.cs-stat-item {
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+}
+
+.cs-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.cs-gal-item {
+  height: 36px;
+  border-radius: 6px;
+}
+
+.cs-gal-tall {
+  grid-row: span 2;
+  height: 78px;
+}
+
+.cs-hours {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 4px;
+}
+
+.cs-services {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 6px 0;
+}
+
+.cs-service-item {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.7);
+  background: rgba(74,222,128,0.07);
+  border-left: 2px solid #4ade80;
+  padding: 4px 10px;
+  border-radius: 0 6px 6px 0;
+}
+
+.cs-antique-grid {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.cs-antique-item {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid rgba(212,168,87,0.2);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-badge-live {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 0.6rem;
+  color: #4ade80;
+  background: rgba(74,222,128,0.1);
+  border: 1px solid rgba(74,222,128,0.2);
+  border-radius: 50px;
+  padding: 3px 8px;
+}
+
+.cs-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 14px;
+  gap: 2px;
+}
+
+.cs-label-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.cs-label-type {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+
+</style>
+
+<script>
+(function() {
+  // Load GSAP
+  const gsapScript = document.createElement('script');
+  gsapScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+  gsapScript.onload = initCardSwap;
+  document.head.appendChild(gsapScript);
+
+  function initCardSwap() {
+    const cards = Array.from(document.querySelectorAll('.cs-card'));
+    const total = cards.length;
+    const cardDistance = 52;
+    const verticalDistance = 60;
+    const skewAmount = 5;
+    const delay = 3200;
+
+    const order = cards.map((_, i) => i);
+
+    function makeSlot(i) {
+      return {
+        x: i * cardDistance,
+        y: -i * verticalDistance,
+        z: -i * cardDistance * 1.5,
+        zIndex: total - i
+      };
+    }
+
+    function placeNow(el, slot) {
+      gsap.set(el, {
+        x: slot.x,
+        y: slot.y,
+        z: slot.z,
+        xPercent: -50,
+        yPercent: -50,
+        skewY: skewAmount,
+        transformOrigin: 'center center',
+        zIndex: slot.zIndex,
+        force3D: true
+      });
+    }
+
+    // Init positions
+    cards.forEach((card, i) => placeNow(card, makeSlot(i)));
+
+    const cfg = {
+      ease: 'elastic.out(0.6,0.9)',
+      durDrop: 1.6,
+      durMove: 1.6,
+      durReturn: 1.6,
+      promoteOverlap: 0.9,
+      returnDelay: 0.05
+    };
+
+    let running = true;
+    let currentTl = null;
+
+    function swap() {
+      if (!running || order.length < 2) return;
+      const front = order[0];
+      const rest = order.slice(1);
+      const elFront = cards[front];
+      const tl = gsap.timeline({ onComplete: () => { order.splice(0, order.length, ...rest, front); } });
+      currentTl = tl;
+
+      // Drop front card down
+      tl.to(elFront, { y: '+=600', duration: cfg.durDrop, ease: cfg.ease });
+
+      // Promote rest
+      tl.addLabel('promote', `-=${cfg.durDrop * cfg.promoteOverlap}`);
+      rest.forEach((idx, i) => {
+        const slot = makeSlot(i);
+        tl.set(cards[idx], { zIndex: slot.zIndex }, 'promote');
+        tl.to(cards[idx], { x: slot.x, y: slot.y, z: slot.z, duration: cfg.durMove, ease: cfg.ease }, `promote+=${i * 0.12}`);
+      });
+
+      // Return front to back
+      const backSlot = makeSlot(total - 1);
+      tl.addLabel('return', `promote+=${cfg.durMove * cfg.returnDelay}`);
+      tl.call(() => gsap.set(elFront, { zIndex: backSlot.zIndex }), [], 'return');
+      tl.to(elFront, { x: backSlot.x, y: backSlot.y, z: backSlot.z, duration: cfg.durReturn, ease: cfg.ease }, 'return');
+    }
+
+    swap();
+    let interval = setInterval(swap, delay);
+
+    // Pause on hover
+    const stage = document.getElementById('cs-container');
+    stage.addEventListener('mouseenter', () => { running = false; currentTl?.pause(); clearInterval(interval); });
+    stage.addEventListener('mouseleave', () => { running = true; currentTl?.play(); interval = setInterval(swap, delay); });
+
+  }
+})();
+</script>
 
 <!-- ── TARIFS ── -->
 <section class="tarifs section" id="tarifs">
@@ -502,11 +1135,11 @@
         <h2 class="section-title reveal reveal-d1">Parlons de<br /><em>votre projet.</em></h2>
         <p class="devis-sub reveal reveal-d2">Réponse sous 24h. Devis gratuit, sans engagement.</p>
         <div class="devis-contacts reveal reveal-d3">
-          <a href="mailto:contact@visium.fr" class="contact-item">
+          <a href="/cdn-cgi/l/email-protection#2e4d41405a4f4d5a6e58475d475b4300485c" class="contact-item">
             <div class="contact-ico">
               <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h16v12H2z"/><path d="M2 4l8 7 8-7"/></svg>
             </div>
-            <span>contact@visium.fr</span>
+            <span><span class="__cf_email__" data-cfemail="1b7874756f7a786f5b6d7268726e76357d69">[email&#160;protected]</span></span>
           </a>
           <a href="https://visium.fr" target="_blank" class="contact-item">
             <div class="contact-ico">
@@ -607,7 +1240,7 @@
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="mailto:contact@visium.fr">contact@visium.fr</a>
+          <a href="/cdn-cgi/l/email-protection#5c3f3332283d3f281c2a352f352931723a2e"><span class="__cf_email__" data-cfemail="94f7fbfae0f5f7e0d4e2fde7fde1f9baf2e6">[email&#160;protected]</span></a>
           <a href="#">Mentions légales</a>
           <a href="#">Confidentialité</a>
         </div>
@@ -621,5 +1254,69 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  // Pill Nav animation
+  const navContainer = document.querySelector('.nav-links');
+  const indicator = document.getElementById('pill-indicator');
+  const links = document.querySelectorAll('.nav-links a');
+
+  function movePill(el) {
+    if (!indicator || !navContainer || !el) return;
+    const containerRect = navContainer.getBoundingClientRect();
+    const linkRect = el.getBoundingClientRect();
+    indicator.style.left = (linkRect.left - containerRect.left) + 'px';
+    indicator.style.width = linkRect.width + 'px';
+  }
+
+  // Init pill on first active link (after layout)
+  window.addEventListener('load', () => {
+    const firstActive = document.querySelector('.nav-links a.active');
+    if (firstActive) {
+      indicator.style.transition = 'none';
+      movePill(firstActive);
+      requestAnimationFrame(() => { indicator.style.transition = ''; });
+    }
+  });
+
+  links.forEach(link => {
+    link.addEventListener('mouseenter', () => movePill(link));
+    link.addEventListener('click', () => {
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  // Reset to active on mouse leave container
+  if (navContainer) {
+    navContainer.addEventListener('mouseleave', () => {
+      const active = document.querySelector('.nav-links a.active');
+      if (active) movePill(active);
+    });
+  }
+
+  // Highlight on scroll
+  const sectionIds = ['arguments', 'portfolio', 'avis'];
+  window.addEventListener('scroll', () => {
+    let current = sectionIds[0];
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 140) current = id;
+    });
+    links.forEach(link => {
+      const href = link.getAttribute('href').replace('#', '');
+      const isMatch = href === current;
+      link.classList.toggle('active', isMatch);
+      if (isMatch) movePill(link);
+    });
+  });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  if (hamburger && navContainer) {
+    hamburger.addEventListener('click', () => {
+      navContainer.style.display = navContainer.style.display === 'flex' ? 'none' : 'flex';
+    });
+  }
+</script>
 </body>
 </html>
